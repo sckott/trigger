@@ -7,6 +7,9 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
+      - name: test stuff
+        run: |
+          echo SHA: ${{ github.sha }}
       - name: Echo strawberries in target repo
         run: |
           curl -L \
