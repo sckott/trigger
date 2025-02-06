@@ -7,9 +7,6 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: Get PR number
-        run: |
-          echo "PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; /^refs\/pull/ { print $3 }')" >> $GITHUB_ENV
       - name: Echo strawberries in target repo
         run: |
           curl -L \
@@ -23,6 +20,6 @@ jobs:
               "client_payload": {
                 "sha": "${{ github.sha }}",
                 "ref": "${{ github.ref }}",
-                "pr": "${{ env.PR_NUMBER }}"
+                "pr": "${{ github.event.issue.number }}"
               }
             }'
