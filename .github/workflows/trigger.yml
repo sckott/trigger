@@ -10,8 +10,8 @@ jobs:
       - name: test stuff
         run: |
           SHA_DEPLOYED=$(curl \
-            https://proof-api-dev.fredhutch.org/info | \
-            jq .commit_sha)
+            https://api.github.com/repos/getwilds/rls/commits | \
+            jq '.[0].sha')
           echo SHA_DEPLOYED: $SHA_DEPLOYED
           echo SHA: ${{ github.sha }}
       - name: Echo strawberries in target repo
