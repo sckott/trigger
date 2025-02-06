@@ -20,6 +20,6 @@ jobs:
               "client_payload": {
                 "sha": "${{ github.sha }}",
                 "ref": "${{ github.ref }}",
-                "pr": "${{ github.event.number }}"
+                "pr": "${{ github.event.pull_request.number }}"
               }
             }'
