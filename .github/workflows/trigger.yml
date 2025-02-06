@@ -13,7 +13,7 @@ jobs:
             https://api.github.com/repos/getwilds/rls/commits | \
             jq '.[0].sha')
           echo SHA_DEPLOYED: $SHA_DEPLOYED
-          echo SHA: ${{ github.sha }}
+          echo SHA: "${{ github.sha }}"
       - name: Echo strawberries in target repo
         run: |
           curl -L \
