@@ -22,7 +22,7 @@ jobs:
               "event_type":"dispatch-event",
               "client_payload": {
                 "sha": "${{ steps.vars.outputs.sha_short }}",
-                "ref": "${{ GITHUB_REF##*/ }}",
+                "ref": "${{ github.ref }}",
                 "pr": "${{ github.event.number }}"
               }
             }'
