@@ -9,9 +9,9 @@ jobs:
     steps:
       - name: test stuff
         run: |
-          SHA_DEPLOYED=curl \
+          SHA_DEPLOYED=$(curl \
             https://proof-api-dev.fredhutch.org/info | \
-            jq .commit_sha
+            jq .commit_sha)
           echo SHA_DEPLOYED: {{ $SHA_DEPLOYED }}
           echo SHA: ${{ github.sha }}
       - name: Echo strawberries in target repo
