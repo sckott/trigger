@@ -7,6 +7,9 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
+      - name: Set outputs
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Echo strawberries in target repo
         run: |
           curl -L \
@@ -18,7 +21,7 @@ jobs:
             -d '{
               "event_type":"dispatch-event",
               "client_payload": {
-                "sha": "${{ GITHUB_SHA }}",
+                "sha": "${{ steps.vars.outputs.sha_short }}",
                 "ref": "${{ GITHUB_REF##*/ }}",
                 "pr": "${{ github.event.number }}"
               }
