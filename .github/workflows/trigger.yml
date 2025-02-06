@@ -22,6 +22,6 @@ jobs:
               "client_payload": {
                 "sha": "${{ github.sha }}",
                 "ref": "${{ github.ref }}",
-                "pr": "${{ PR_NUMBER }}"
+                "pr": "$PR_NUMBER"
               }
             }'
